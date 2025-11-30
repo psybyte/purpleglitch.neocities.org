@@ -1,0 +1,26 @@
+Minority Report Visual Style Guide (for Web Use)
+
+General Aesthetic - Cinematic near-future sci‑fi inspired by the film
+Minority Report (2002). - Emphasis on a cold, technological, atmospheric
+mood.
+
+Visual Characteristics - Strong bloom and halation on highlights. -
+Overexposed backlight creating glowing silhouettes. - Soft diffusion:
+slightly blurred edges and gentle glow. - Mild bleach-bypass look: low
+saturation, deep blacks, gritty texture.
+
+Color Palette - Dominant hues: cold blues, cyan tones, metallic greys. -
+Very low saturation; nearly monochromatic. - Bright whites with soft
+glowing edges.
+
+Atmosphere - Fog, mist, light rain, and environmental haze. - Futuristic
+cityscapes with silhouettes fading into distance. - Wet reflective
+surfaces enhancing bloom.
+
+Composition - Shallow depth of field: sharp subjects, blurred
+backgrounds. - Dynamic framing and light motion blur for energy. -
+Tension-driven tone: surveillance, pursuit, anticipation.
+
+Summary (Short Version) “Futuristic cinematic style with intense bloom,
+cold cyan color grading, soft diffusion, atmospheric fog, and a
+bleach-bypass look—reflecting the aesthetic of Minority Report.”

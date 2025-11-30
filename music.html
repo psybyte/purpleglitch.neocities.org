@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUDIO_LOGS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Minority Report - Atmospheric breathing effect */
+    @keyframes atmospheric-pulse {
+
+      0%,
+      100% {
+        filter: brightness(1) contrast(1.1);
+        transform: scale(1);
+      }
+
+      50% {
+        filter: brightness(1.05) contrast(1.05);
+        transform: scale(1.002);
+      }
+    }
+
+    /* Gentle bloom pulse on header */
+    header {
+      animation: atmospheric-pulse 8s ease-in-out infinite;
+    }
+
+    /* Halation effect on title */
+    .halation {
+      position: relative;
+      display: inline-block;
+    }
+
+    .halation::before {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      filter: blur(20px);
+      opacity: 0.6;
+      z-index: -1;
+      color: #c8e5f5;
+    }
+
+    /* Subtle floating animation */
+    @keyframes float-drift {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    main {
+      animation: float-drift 6s ease-in-out infinite;
+    }
+
+    /* Light particles */
+    .light-particle {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: rgba(120, 200, 255, 0.6);
+      border-radius: 50%;
+      filter: blur(1px);
+      box-shadow: 0 0 10px rgba(120, 200, 255, 0.8);
+      pointer-events: none;
+      z-index: 2;
+      animation: particle-float 15s linear infinite;
+    }
+
+    @keyframes particle-float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    .light-particle:nth-child(2) {
+      left: 30%;
+      animation-delay: -5s;
+      animation-duration: 12s;
+    }
+
+    .light-particle:nth-child(3) {
+      left: 60%;
+      animation-delay: -8s;
+      animation-duration: 18s;
+    }
+
+    .light-particle:nth-child(4) {
+      left: 80%;
+      animation-delay: -3s;
+      animation-duration: 14s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Atmospheric particles -->
+  <div class="light-particle"></div>
+  <div class="light-particle"></div>
+  <div class="light-particle"></div>
+  <div class="light-particle"></div>
+
+  <header>
+    <h1 class="halation" data-text="PRECRIME_ARCHIVE">PRECRIME_ARCHIVE</h1>
+    <div style="margin-bottom:0.5em;"><span
+        style="font-size:1.2em; color:#90c8e8; text-shadow:0 0 10px rgba(100, 200, 255, 0.5); letter-spacing: 2px;">//
+        AUDIO_LOGS</span></div>
+    <nav>
+      <a href="index.html">DATA_CORE</a>
+      <a href="images.html">VISUALS</a>
+      <a href="music.html">AUDIO_LOGS</a>
+      <a href="socials.html">NETWORK</a>
+      <a href="guestbook.html">WITNESS_LOG</a>
+    </nav>
+  </header>
+  <main>
+    <h2>RECOVERED_AUDIO</h2>
+    <div style="margin:1.5em 0; text-align:center;">
+      <iframe style="border-radius:2px; margin-bottom:1em; box-shadow: 0 0 20px rgba(100, 200, 255, 0.1);"
+        src="https://open.spotify.com/embed/artist/3RDfBjQJpd2E9iW1OG8zkF?utm_source=generator&theme=0" width="100%"
+        height="352" frameBorder="0" allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+        style="border-radius:2px; margin-bottom:1em; box-shadow: 0 0 20px rgba(100, 200, 255, 0.1);"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/purplehue95&color=%236bc8ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+      <iframe style="border: 0; width: 100%; height: 900px; box-shadow: 0 0 20px rgba(100, 200, 255, 0.1);"
+        src="https://bandcamp.com/EmbeddedPlayer/album=301658728/size=large/bgcol=333333/linkcol=6bc8ff/transparent=true/"
+        seamless><a href="https://didacvm.bandcamp.com/album/stop-the-problems">stop the problems by Didac
+          V.M.</a></iframe>
+    </div>
+    <ul>
+      <li><a href="https://didacvm.bandcamp.com/" target="_blank">BANDCAMP_FREQ</a></li>
+      <li><a href="https://open.spotify.com/intl-es/artist/3RDfBjQJpd2E9iW1OG8zkF?si=riQHjdc5T-us1eicTKemHA"
+          target="_blank">SPOTIFY_STREAM</a></li>
+      <li><a href="https://soundcloud.com/purplehue95" target="_blank">SOUNDCLOUD_LINK</a></li>
+    </ul>
+  </main>
+</body>
+
+</html>
