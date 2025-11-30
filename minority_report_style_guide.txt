@@ -2,24 +2,62 @@ Minority Report Visual Style Guide (for Web Use)
 
 General Aesthetic - Cinematic near-future sci‑fi inspired by the film
 Minority Report (2002). - Emphasis on a cold, technological, atmospheric
-mood.
+mood. - Layered digital decay and neon-infused futurism.
 
 Visual Characteristics - Strong bloom and halation on highlights. -
 Overexposed backlight creating glowing silhouettes. - Soft diffusion:
 slightly blurred edges and gentle glow. - Mild bleach-bypass look: low
-saturation, deep blacks, gritty texture.
+saturation, deep blacks, gritty texture. - Chromatic aberration on 
+high-contrast edges for digital distortion. - Scanlines and interlace 
+patterns suggesting holographic/digital surfaces. - Lens flares and 
+geometric light refractions from tech elements.
 
 Color Palette - Dominant hues: cold blues, cyan tones, metallic greys. -
 Very low saturation; nearly monochromatic. - Bright whites with soft
-glowing edges.
+glowing edges. - Accent neon streaks: electric cyan, vaporwave magenta,
+and phosphorescent green for digital UI elements. - Desaturated warm
+tones (beige, burnt sienna) for contrast against cool palette.
 
 Atmosphere - Fog, mist, light rain, and environmental haze. - Futuristic
 cityscapes with silhouettes fading into distance. - Wet reflective
-surfaces enhancing bloom.
+surfaces enhancing bloom. - Particle systems: dust motes, rain droplets,
+digital artifacts drifting through space. - Film grain texture overlaid
+for analogue-digital fusion aesthetic.
 
 Composition - Shallow depth of field: sharp subjects, blurred
 backgrounds. - Dynamic framing and light motion blur for energy. -
 Tension-driven tone: surveillance, pursuit, anticipation.
+
+Advanced Visual Effects - Cinemagraph elements: subtle infinite loops on 
+glowing lights and digital interfaces. - Vignette darkening with vignetted 
+bloom falloff at edges. - Banding and posterization on color gradients for 
+a segmented digital feel. - Chromatic aberration shift animations on hover 
+states. - Parallax depth with multiple offset layers suggesting motion 
+through digital space. - Volumetric light shafts piercing through haze and 
+particle systems. - Radial glow distortion suggesting electromagnetic fields 
+around tech elements. - Animated scanlines that drift vertically for a 
+CRT/hologram effect. - Pulsing aura effects on key interactive elements 
+(buttons, links) with subtle rhythmic breathing. - Glitch transitions using 
+displacement mapping and RGB channel separation. - Neon glow overflow with 
+soft shadows bleeding beyond element boundaries.
+
+Typography - Clean, geometric, sans-serif fonts (futuristic feel). - 
+Subtle text glow with shadow blur for immersion in atmosphere. - All-caps 
+or small caps for UI elements reinforcing tech aesthetic. - Thin to regular 
+font weights; avoid heavy bold unless for emphasis. - Kerning and letter 
+spacing slightly increased for clinical precision.
+
+Interactive States - Hover states intensify chromatic aberration and glow. - 
+Click feedback manifests as brief bloom spike or glitch effect. - Focus 
+states use bright cyan outline with soft halo. - Disabled states reduce 
+saturation and glow intensity dramatically. - Transitions use easing that 
+feels mechanical yet smooth (cubic-bezier timing).
+
+Lighting & Shadows - Key light sources create strong directional shadows. - 
+Multiple light layers: hard rim light + soft fill light + ambient glow. - 
+Shadow color is cool blue/cyan, never neutral black. - Soft shadows with 
+high blur radius (8-16px) for volumetric feel. - Inner shadows on recessed 
+UI elements suggesting depth and tech layering.
 
 Summary (Short Version) “Futuristic cinematic style with intense bloom,
 cold cyan color grading, soft diffusion, atmospheric fog, and a

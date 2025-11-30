@@ -7,27 +7,22 @@
   <title>WITNESS_LOG</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Minority Report - Atmospheric breathing effect */
+    /* Minority Report - Enhanced atmospheric effects */
     @keyframes atmospheric-pulse {
-
-      0%,
-      100% {
+      0%, 100% {
         filter: brightness(1) contrast(1.1);
         transform: scale(1);
       }
-
       50% {
-        filter: brightness(1.05) contrast(1.05);
-        transform: scale(1.002);
+        filter: brightness(1.08) contrast(1.08);
+        transform: scale(1.003);
       }
     }
 
-    /* Gentle bloom pulse on header */
     header {
       animation: atmospheric-pulse 8s ease-in-out infinite;
     }
 
-    /* Halation effect on title */
     .halation {
       position: relative;
       display: inline-block;
@@ -38,38 +33,43 @@
       position: absolute;
       left: 0;
       top: 0;
-      filter: blur(20px);
-      opacity: 0.6;
+      filter: blur(25px);
+      opacity: 0.8;
       z-index: -1;
       color: #c8e5f5;
+      animation: halation-pulse 4s ease-in-out infinite;
     }
 
-    /* Subtle floating animation */
-    @keyframes float-drift {
+    .halation:hover::before {
+      filter: blur(20px) drop-shadow(3px 0 0 #ff00ff) drop-shadow(-3px 0 0 #00ffff);
+    }
 
-      0%,
-      100% {
+    @keyframes halation-pulse {
+      0%, 100% { opacity: 0.8; filter: blur(25px); }
+      50% { opacity: 1; filter: blur(30px); }
+    }
+
+    @keyframes float-drift {
+      0%, 100% {
         transform: translateY(0px);
       }
-
       50% {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
       }
     }
 
     main {
-      animation: float-drift 6s ease-in-out infinite;
+      animation: float-drift 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
-    /* Light particles */
     .light-particle {
       position: fixed;
-      width: 2px;
-      height: 2px;
-      background: rgba(120, 200, 255, 0.6);
+      width: 3px;
+      height: 3px;
+      background: radial-gradient(circle, rgba(120, 200, 255, 1), rgba(120, 200, 255, 0.3));
       border-radius: 50%;
       filter: blur(1px);
-      box-shadow: 0 0 10px rgba(120, 200, 255, 0.8);
+      box-shadow: 0 0 15px rgba(120, 200, 255, 1);
       pointer-events: none;
       z-index: 2;
       animation: particle-float 15s linear infinite;
@@ -80,37 +80,66 @@
         transform: translateY(100vh) translateX(0);
         opacity: 0;
       }
-
       10% {
         opacity: 1;
       }
-
       90% {
         opacity: 1;
       }
-
       100% {
         transform: translateY(-10vh) translateX(100px);
         opacity: 0;
       }
     }
 
+    .light-particle:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 16s;
+      background: radial-gradient(circle, #6bc8ff, rgba(107, 200, 255, 0.3));
+      box-shadow: 0 0 15px #6bc8ff;
+    }
+
     .light-particle:nth-child(2) {
       left: 30%;
       animation-delay: -5s;
       animation-duration: 12s;
+      background: radial-gradient(circle, #00ffff, rgba(0, 255, 255, 0.3));
+      box-shadow: 0 0 15px #00ffff;
     }
 
     .light-particle:nth-child(3) {
       left: 60%;
       animation-delay: -8s;
       animation-duration: 18s;
+      background: radial-gradient(circle, #64c8ff, rgba(100, 200, 255, 0.3));
+      box-shadow: 0 0 15px #64c8ff;
     }
 
     .light-particle:nth-child(4) {
       left: 80%;
       animation-delay: -3s;
       animation-duration: 14s;
+      background: radial-gradient(circle, #00ff88, rgba(0, 255, 136, 0.3));
+      box-shadow: 0 0 15px #00ff88;
+    }
+
+    /* Glitch effect */
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    p {
+      transition: all 0.3s ease;
+    }
+
+    p:hover {
+      animation: glitch 0.3s ease;
     }
   </style>
 </head>
