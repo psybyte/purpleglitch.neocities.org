@@ -1,0 +1,133 @@
+/* Cleaned Minority Report style - safe, non-blocking effects */
+
+:root {
+  --neon-cyan: #00ffff;
+  --neon-magenta: #ff00ff;
+  --neon-pink: #ff1493;
+  --neon-green: #00ff88;
+  --cold-blue: #0066ff;
+  --base-dark: #0a0e14;
+  --text-cold: #a8c5d8;
+  --vignette-blur: 40px;
+  --glow-blur: 20px;
+}
+
+/* Base layout */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--base-dark);
+  color: var(--text-cold);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Vignette / atmospheric fog (non-blocking) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* keep behind content */
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(5,20,40,0.85) 70%, rgba(0,10,20,0.98) 100%);
+  filter: blur(var(--vignette-blur));
+}
+
+/* Subtle particle layer (keeps pointer-events: none) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(3px 3px at 10% 20%, rgba(0,255,255,0.07), transparent),
+    radial-gradient(2px 2px at 40% 60%, rgba(255,0,255,0.04), transparent),
+    radial-gradient(2px 2px at 80% 10%, rgba(0,255,136,0.03), transparent);
+  background-size: 400% 400%;
+  opacity: 0.6;
+  filter: blur(2px);
+  animation: fog-drift 30s linear infinite;
+}
+
+@keyframes fog-drift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Header */
+header {
+  position: relative;
+  z-index: 5; /* on top of fog layers */
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(100,200,255,0.08);
+  backdrop-filter: blur(6px);
+}
+
+/* Halation title effect - simple and safe */
+.halation { position: relative; display: inline-block; }
+.halation::before {
+  content: attr(data-text);
+  position: absolute; left: 0; top: 0;
+  color: var(--text-cold);
+  z-index: 4; /* behind the actual text but above vignette */
+  transform: translate(2px, 2px);
+  filter: blur(18px);
+  opacity: 0.85;
+  pointer-events: none;
+  text-shadow: 0 0 24px rgba(0,255,255,0.6);
+}
+
+/* Nav */
+nav { margin-top: 0.5rem; }
+nav a {
+  color: var(--text-cold);
+  text-decoration: none;
+  margin: 0 0.8rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0,255,255,0.06);
+}
+nav a:hover { color: #ffffff; text-shadow: 0 0 20px rgba(0,255,255,0.25); }
+
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-transform: uppercase;
+}
+
+/* Light particles (DOM elements) */
+.light-particle {
+  position: fixed;
+  width: 4px; height: 4px; border-radius: 50%;
+  pointer-events: none; z-index: 2;
+  background: radial-gradient(circle, rgba(120,200,255,1), rgba(120,200,255,0.15));
+  box-shadow: 0 0 18px rgba(120,200,255,0.9);
+  filter: blur(1px);
+  opacity: 0.95;
+}
+.light-particle:nth-child(1) { left: 6%; top: 85%; animation: particle-float 18s linear infinite; }
+.light-particle:nth-child(2) { left: 26%; top: 90%; animation: particle-float 14s linear infinite; background: radial-gradient(circle, #ff00ff, rgba(255,0,255,0.15)); box-shadow: 0 0 22px rgba(255,0,255,0.6); }
+.light-particle:nth-child(3) { left: 56%; top: 88%; animation: particle-float 16s linear infinite; background: radial-gradient(circle, #00ff88, rgba(0,255,136,0.12)); box-shadow: 0 0 20px rgba(0,255,136,0.5); }
+.light-particle:nth-child(4) { left: 80%; top: 92%; animation: particle-float 15s linear infinite; }
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateX(80px) rotate(360deg); opacity: 0; }
+}
+
+/* small responsive tweaks */
+@media (max-width: 600px) {
+  nav a { display: inline-block; margin: 0 0.4rem; font-size: 0.9rem; }
+  main { padding: 1rem; }
+}
+
+/* Utility: temporary disable extreme effects if user wants safe view */
+html.clean-mode body::before, html.clean-mode body::after, html.clean-mode .halation::before { display: none !important; }
